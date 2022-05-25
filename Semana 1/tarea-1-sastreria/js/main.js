@@ -1,7 +1,7 @@
 /**
 * @name main.js
-* @file Add a small description for this file.
-* @author <Add Your Name Here>, <addyouremail@mail.com>
+* @file Tarea1-Sastrería
+* @author <Yensy Salazar>
 * @version 1.0.0
 */
 
@@ -11,7 +11,7 @@ window.onload = init;
 // window.addEventListener('load', init);
 function init() {
     console.log('App running!');
-    //0. Obtener los elementos de html para mi UI
+    
     var cantidadDePersonasIn = document.getElementById('cantidadDePersonasIn');
     var cantidadDeTelaPorPersonaIn = document.getElementById('cantidadDeTelaPorPersonaIn');
     var precionDeTelaIn = document.getElementById('precionDeTelaIn');
@@ -20,11 +20,14 @@ function init() {
 
     calcularBtn.onclick = onCalcularBtn;
 
-    //1. Declare variables and Initialize variables
-
-    //2. Events
     function onCalcularBtn() {
-        //3. Program Logic
+        var cantidadTela = Number(cantidadDeTelaPorPersonaIn.value);
+        var cantidadPersonas = Number(cantidadDePersonasIn.value);
+        var precioTela = Number(precionDeTelaIn.value);
+        var cantidadTotalTela = cantidadTela * cantidadPersonas;
+        var precioTotalTela = cantidadTotalTela * precioTela;
 
+        console.log('Cantidad total de tela:' + cantidadTotalTela + ' metros', 'Costo total de tela: ¢' + precioTotalTela);
+        resultadoLbl.innerHTML = ' Metros de Tela: ' + cantidadTotalTela + 'm' + 'Precio Final: ¢' + precioTotalTela;
     }
 }
