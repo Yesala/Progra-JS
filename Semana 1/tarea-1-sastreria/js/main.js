@@ -27,7 +27,7 @@ function init() {
         var cantidadTotalTela = cantidadTela * cantidadPersonas;
         var precioTotalTela = cantidadTotalTela * precioTela;
 
-        console.log('Cantidad total de tela:' + cantidadTotalTela + ' metros', 'Costo total de tela: ¢' + precioTotalTela);
-        resultadoLbl.innerHTML = ' Metros de Tela: ' + cantidadTotalTela + 'm' + 'Precio Final: ¢' + precioTotalTela;
+        console.log('Cantidad total de tela:' + cantidadTotalTela + ' metros', ' Costo total de tela: ¢' + precioTotalTela);
+        resultadoLbl.innerHTML = ' Metros de Tela: ' + cantidadTotalTela + 'm ' + ' Precio Final: ¢' + precioTotalTela;
     }
 }
