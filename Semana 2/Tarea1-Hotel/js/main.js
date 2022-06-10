@@ -17,8 +17,8 @@ function init() {
 
         var descuento5 = 0.05 * 100;
         var descuento10 = 0.10 * 100;
-        var regular = (descuento5 + valorNoche) * cantidaNoches;
-        var frecuente = (descuento10 + valorNoche) * cantidaNoches;
+        var regular = (valorNoche - descuento5) * cantidaNoches;
+        var frecuente = (valorNoche - descuento10) * cantidaNoches;
 
         if (tipoCliente == 'Regular'){
             resultadoLbl.innerHTML = 'Monto a pagar: $' + regular;
