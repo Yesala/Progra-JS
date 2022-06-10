@@ -22,6 +22,8 @@ function calc() {
     }
 }
 
-function clear() {
-    document.getElementById('result').innerHTML = "";
+function clr() {
+    document.getElementById("n1").value = ""
+    document.getElementById("n2").value = ""
+    document.getElementById("result").value = ""
 }

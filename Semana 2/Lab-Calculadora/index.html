@@ -15,10 +15,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col"><h3 class="title">Calculadora</h3></p></div>
+            <div class="col">
+                <p class="title">Calculadora</p>
+            </div>
         </div>
         <div class="row row-cols-auto">
-            <div class="col"><button onclick="clear();" id="clearContent">C</button></div>
             <div class="number1 col">
                 <input type="text" id="n1">
             </div>
@@ -33,10 +34,9 @@
             <div class="number2 col">
                 <input type="text" id="n2">
             </div>
-            <div class="showResult col">
-                <button onclick="calc();">=</button>
-                <input type="text" id="result" />
-            </div>
+            <div class="col"><button onclick="calc()">=</button></div>
+            <div class="col"><input type="text" id="result"></div>
+            <div class="col"><button onclick="clr()" id="clearContent">C</button></div>
         </div>
     </div>
 </body>

@@ -1,17 +1,19 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
     background-color: black;
 }
 
 .title{
-    color: #cccac5;
-    margin: 10px;
+    color: #8c8b87;
+    font-family: 'Futura';
+    font-size: 37px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
 }
 
 #clearContent{
     color: #ffcc00;
-    padding: 10px;
-    background-color: lightslategray;
+    border-style: dashed;
 }
 
 input {
@@ -24,10 +26,10 @@ input {
 
 button{
     border-style: none;
-    margin-right: 15px;
     background: none;
     font-size: 25px;
     color:#ffcc00;
+    margin-top: 10px;
 }
 
 #operators{
