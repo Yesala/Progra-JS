@@ -15,9 +15,9 @@ function init() {
         if(firstNumber == secondNumber){
             resultadoLbl.innerHTML = "Los números son iguales";
         }else if (firstNumber > secondNumber){
-            resultadoLbl.innerHTML = 'Número máximo: ' + firstNumber;
+            resultadoLbl.innerHTML = 'Número máximo: ' + firstNumber + ', Número mínimo ' + secondNumber;
         }else{
-            resultadoLbl.innerHTML = 'Número máximo: ' + secondNumber;
+            resultadoLbl.innerHTML = 'Número máximo: ' + secondNumber + ', Número mínimo ' + firstNumber;;
         }
     }
 }
