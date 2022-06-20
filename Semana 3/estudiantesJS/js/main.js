@@ -23,10 +23,10 @@ function init() {
     buscarBtn.onclick = onBuscarBtn;
 
     var indexDePersona = 0;
-    var nombres = ['Esteban','Juan','Maria'];
+    var nombres = ['Esteban', 'Juan', 'Maria'];
     var apellidos = ['Padilla', 'Rojas', 'Smith'];
     var notas = [90, 95, 100];
-    var emails = ['esteban@mail.com', 'juan@mail.com','maria@mail.com'];
+    var emails = ['esteban@mail.com', 'juan@mail.com', 'maria@mail.com'];
     llenarEstudiantesSlt();
 
     function onRegistrarBtn() {
@@ -75,13 +75,19 @@ function init() {
         }
     }
 
-    function onBuscarBtn() { 
-        for (let index = 0; index < nombres.length; index++){
-                estudianteInfo.innerHTML = nombres[index] +' '+ apellidos[index] +', Nota: '+ notas[index];
+    function onBuscarBtn() {
+        // var email = estudiantesSlt.value;
+
+        // for(var i=0; i < emails.length; i++){
+        //     if(email === emails[i]){
+        //         estudianteInfo.innerHTML = `Estudiante: ${nombres[i]} ${apellidos[i]}, Nota: ${notas[i]}`;
+        //         return;
+        //     }
+        // }
+
+        for (let i = 0; i < nombres.length; i++) {
+                estudianteInfo.innerHTML = 'Estudiante: ' + nombres[i] + ' ' + apellidos[i] + ', Nota: ' + notas[i];
         }
-        "No se encontró el estudiante";
-        
-        //console.log(estudiantesSlt.textContent);
     }
 
     function limpiar() {
