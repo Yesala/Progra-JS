@@ -17,23 +17,21 @@
             <input type="number" id="notaIn" placeholder="Nota">
             <input type="text" id="emailIn" placeholder="Email">
             <button id="registrarBtn">Registrar</button>
-            <select name="" id="estudiantesSlt"></select>
-            <button id="buscarBtn">Buscar</button>
-            <table id="tbl-usuarios-prov" class="tabla">
+            <br>
+            <h3>Lista de Estudiantes</h3>
+            <br>
+            <table id="tableEstudiantes" class="tablaEstudiantes">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Correo Electrónico</th>
+                        <th>Email</th>
                         <th>Nota</th>
-                        <th></th>
+                        <th> Eliminar</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="datas"></tbody>
             </table>
-            <button id="eliminarBtn">Elminar</button>
-            <p id="estudianteInfo" class="estudianteInfo"></p>
-            <table id="estudiantesTbl"></table>
         </div>
     </div>
 </body>

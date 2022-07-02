@@ -1,10 +1,3 @@
-/**
-* @name main.js
-* @file Add a small description for this file.
-* @author <Add Your Name Here>, <addyouremail@mail.com>
-* @version 1.0.0
-*/
-
 "use strict";
 
 import { Persona } from './persona.js';
@@ -17,15 +10,10 @@ function init() {
     var notaIn = document.getElementById('notaIn');
     var emailIn = document.getElementById('emailIn');
     var registrarBtn = document.getElementById('registrarBtn');
-    var estudiantesSlt = document.getElementById('estudiantesSlt');
-    var buscarBtn = document.getElementById('buscarBtn');
+    var estudiantesTbl = document.getElementById("tableEstudiantes");
+    var table = document.getElementById('datas');
     var eliminarBtn = document.getElementById('eliminarBtn');
-    var estudianteInfo = document.getElementById('estudianteInfo');
-    var estudiantesTbl = document.getElementById('estudiantesTbl');
 
-    registrarBtn.onclick = onRegistrarBtn;
-    buscarBtn.onclick = onBuscarBtn;
-    eliminarBtn.onclick = onEliminarBtn;
     var estudiantes = [];
 
     if (window.localStorage.getItem('estudiantes') !== null) {
@@ -38,8 +26,8 @@ function init() {
         estudiantes.push(juan);
         estudiantes.push(maria);
     }
+    registrarBtn.onclick = onRegistrarBtn;
 
-    llenarEstudiantesSlt();
     llenarEstudiantesTbl();
 
     function onRegistrarBtn() {
@@ -84,33 +72,73 @@ function init() {
             window.localStorage.setItem('estudiantes', JSON.stringify(estudiantes));
 
             limpiar();
-            llenarEstudiantesSlt();
             llenarEstudiantesTbl();
         }
     }
 
-    function onBuscarBtn() {
-        var email = estudiantesSlt.value;
-        for (var i = 0; i < estudiantes.length; i++) {
-            var persona = estudiantes[i];
-            if (email === persona.email) {
-                estudianteInfo.innerHTML = `<b>Información:</b> ${persona.nombre} ${persona.apellido}<br><b>Nota:</b> ${persona.nota}<br><b>Email:</b> ${persona.email}<br> ${persona.aprobar()}`;
-                return;
-            }
-        }
+    function llenarEstudiantesTbl() {
+        table.innerHTML = '';
+        var tr = '';
+        let btnDel = document.createElement("button");
+        btnDel.innerText = "Eliminar";
+        btnDel.setAttribute('id', 'eliminarBtn');
+        //document.body.appendChild(btnDel);
+
+        estudiantes.forEach(x => {
+            tr += '<tr>';
+            tr += '<td>' + x.nombre + '</td>' + '<td>' + x.apellido + '</td>' + '<td>'
+                + x.email + '</td>' + '<td>' + x.nota + '</td>';
+            tr += '<td><button id="eliminarBtn">Eliminar</button></td>'
+            tr += '</tr>';
+        });
+
+        table.innerHTML += tr;
     }
 
+    //     var tbl = document.createElement("table");
+    //     var tblBody = document.createElement("tbody");
+
+    //     var eliminarBtn = document.createElement('button');
+    //     eliminarBtn.innerText = 'Eliminar';
+
+    //     for (let i = 0; i < estudiantes.length; i++) {
+    //         var row = document.createElement("tr");
+
+    //         for (let j = 0; j < 5; j++) {
+    //             var cell = document.createElement("td");
+    //             var cellText = document.createTextNode('text');
+    //             cell.appendChild(cellText);
+    //             cell.appendChild(eliminarBtn);
+    //             row.appendChild(cell);
+    //         }
+    //         tblBody.appendChild(row);
+    //     }
+    //     tbl.appendChild(tblBody);
+    //     document.body.appendChild(tbl);
+    // }
+
     function onEliminarBtn() {
-        var email = estudiantesSlt.value;
+        var email = table.value;
         estudiantes.forEach((persona, i) => {
             if (email === persona.email) {
                 estudiantes.splice(i, 1);
                 window.localStorage.setItem('estudiantes', JSON.stringify(estudiantes));
                 cargarDesdeLocalStorage();
-                llenarEstudiantesSlt();
                 llenarEstudiantesTbl();
             }
         });
+    }
+
+    function onEliminarTd(event) {
+        console.log(event.target);//td
+        console.log(event.target.email);//print el de la pesona
+
+        // const buttons = document.getElementsById('eliminarBtn');
+        // for (let i = 0; i < buttons.length; ++i) {
+        //     buttons[i].onclick = function (event) {
+        //         document.getElementsByClassName("eliminar-" + event.currentTarget.id[event.currentTarget.id.length - 1])[0].innerHTML = "";
+        //     }
+        // }
     }
 
     function limpiar() {
@@ -120,44 +148,11 @@ function init() {
         emailIn.value = '';
     }
 
-    function llenarEstudiantesSlt() {
-        estudianteInfo.innerHTML = '';
-        estudiantesSlt.innerHTML = '';
-
-        for (let index = 0; index < estudiantes.length; index++) {
-            var persona = estudiantes[index];
-            var nombre = persona.nombre;
-            var apellido = persona.apellido;
-            var option = document.createElement('option');
-            estudiantesSlt.appendChild(option);
-            option.innerHTML = nombre + ' ' + apellido;
-            option.value = persona.email;
-        }
-    }
-
-    function llenarEstudiantesTbl() {
-        estudiantesTbl.innerHTML = '';
-        //TODO:
-        //1. Llenar la table con los datos en estudiantes.
-        //2. Agregar el td de eliminar un evento onclick = onEliminarTd
-        //3. Agregar dinamicamente al objecto td de eliminar el email de la persona td.email = persona.email;
-    }
-
-
-    
-
-    function onEliminarTd(event) {
-        console.log(event.target);//td
-        console.log(event.target.email);//print el de la pesona
-        //TODO: Recuerden ver el metodo onEliminarBtn y lo que este hace.
-    }
-
     function cargarDesdeLocalStorage() {
         var dataSerializada = window.localStorage.getItem('estudiantes');
         var data = JSON.parse(dataSerializada);
         estudiantes = [];
         data.forEach(function (personaData) {
-            // var persona = new Persona(estudianteData.nombre, estudianteData.apellido, estudianteData.nota, estudianteData.email);
             var persona = new Persona();
             persona.constructorFromData(personaData);
             estudiantes.push(persona);
