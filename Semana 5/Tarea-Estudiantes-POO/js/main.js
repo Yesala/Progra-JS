@@ -82,40 +82,38 @@ function init() {
         let btnDel = document.createElement("button");
         btnDel.innerText = "Eliminar";
         btnDel.setAttribute('id', 'eliminarBtn');
-        //document.body.appendChild(btnDel);
 
         estudiantes.forEach(x => {
             tr += '<tr>';
             tr += '<td>' + x.nombre + '</td>' + '<td>' + x.apellido + '</td>' + '<td>'
                 + x.email + '</td>' + '<td>' + x.nota + '</td>';
-            tr += '<td><button id="eliminarBtn">Eliminar</button></td>'
+            tr += '<td>'+ '' +'</td>';
             tr += '</tr>';
         });
 
         table.innerHTML += tr;
     }
+        //CODIGO 2 CREAR TABLA:
+        //     var tbl = document.createElement("table");
+        //     var tblBody = document.createElement("tbody");
 
-    //     var tbl = document.createElement("table");
-    //     var tblBody = document.createElement("tbody");
+        //     var eliminarBtn = document.createElement('button');
+        //     eliminarBtn.innerText = 'Eliminar';
 
-    //     var eliminarBtn = document.createElement('button');
-    //     eliminarBtn.innerText = 'Eliminar';
+        //     for (let i = 0; i < estudiantes.length; i++) {
+        //         var row = document.createElement("tr");
 
-    //     for (let i = 0; i < estudiantes.length; i++) {
-    //         var row = document.createElement("tr");
-
-    //         for (let j = 0; j < 5; j++) {
-    //             var cell = document.createElement("td");
-    //             var cellText = document.createTextNode('text');
-    //             cell.appendChild(cellText);
-    //             cell.appendChild(eliminarBtn);
-    //             row.appendChild(cell);
-    //         }
-    //         tblBody.appendChild(row);
-    //     }
-    //     tbl.appendChild(tblBody);
-    //     document.body.appendChild(tbl);
-    // }
+        //         for (let j = 0; j < 5; j++) {
+        //             var cell = document.createElement("td");
+        //             var cellText = document.createTextNode('text');
+        //             cell.appendChild(cellText);
+        //             row.appendChild(cell);
+        //         }
+        //         tblBody.appendChild(row);
+        //     }
+        //     tbl.appendChild(tblBody);
+        //     document.body.appendChild(tbl);
+        // }
 
     function onEliminarBtn() {
         var email = table.value;
