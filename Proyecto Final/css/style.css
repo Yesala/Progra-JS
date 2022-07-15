@@ -1,0 +1,38 @@
+:root{
+    --primary-color:#10a0ed ;
+    --secondary-color:#e29a26 ;
+    --background-color: #cfcecb;
+}
+
+* { padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif; }
+h1 { color: var(--primary-color)}
+h2 { color: var(--secondary-color) }
+
+input{
+    outline: none;
+    border: none;
+}
+
+
+button{
+    min-width: 60px;
+    border-style: none;
+    /*padding: 10px 10px 10px 10px;*/
+    margin-bottom: 10px;
+    margin: 5px 5px 5px 5px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--primary-color);
+    outline: none;
+    border-radius: 5px;
+}
+
+button.focus {
+    outline: none;
+}
+
+.appContainer{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+}

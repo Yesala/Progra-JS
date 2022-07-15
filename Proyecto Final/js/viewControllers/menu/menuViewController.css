@@ -1,0 +1,38 @@
+.menuViewController{
+
+}
+
+.menuViewController_text1Lbl{
+    text-align: center;
+    width: 90%;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.menuViewController_text2Lbl{
+    text-align: center;
+    width: 90%;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.menuViewController_contentContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuViewController_usernameIn{
+    width: 90%;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.menuViewController_buttons{
+    width: 90%;
+    height: 30px;
+}
