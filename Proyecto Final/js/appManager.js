@@ -3,28 +3,70 @@ import { ScoresViewController } from "./viewControllers/scores/scoresViewControl
 import { GameViewController } from "./viewControllers/game/gameViewController.js";
 
 
-export class AppManager{
-    constructor(){
+export class AppManager {
+    constructor() {
         this.appContainer = document.getElementById('appContainer');
-        this.menuViewController = new MenuViewController(this, this.appContainer);
+        this.menuViewController = null;
         this.scoresViewController = null;
         this.gameViewController = null;
+        this.username = window.localStorage.getItem('username');
+        this.clicks = 0;
+        this.time = 0;
+        this.timer = null;
+        this.timeLimit = 60;
+
+        if (this.username === null) {
+            this.menuViewController = new MenuViewController(this, this.appContainer);
+        } else {
+            this.showGame();
+        }
+
     }
 
-    showScores(){
+    showScores() {
         this.scoresViewController = new ScoresViewController(this, this.appContainer);
     }
 
-    showGame(){
+    showGame() {
         this.gameViewController = new GameViewController(this, this.appContainer);
+        this.timer = window.setInterval(this.updateTime.bind(this), 1000);
     }
 
-    removeViewController(viewController){
+    removeViewController(viewController) {
         this.appContainer.removeChild(viewController.mainContainer);
     }
 
-    removeGame(){
+    removeGame() {
 
+    }
+
+    setUsername(username) {
+        this.username = username;
+        window.localStorage.setItem('username', username);
+    }
+
+    updateClicks() {
+        this.clicks += 1;
+        this.gameViewController.updateClicks();
+    }
+
+    updateTime() {
+        if (this.time < this.timeLimit) {
+            this.time += 1;
+            this.gameViewController.updateTime();
+        } else {
+            window.clearInterval(this.timer);
+            this.gameViewController.end();
+        }
+    }
+
+    reset(){
+        this.clicks = 0;
+        this.time = 0;
+        window.clearInterval(this.timer);
+        this.timer = window.setInterval(this.updateTime.bind(this), 1000);
+        this.gameViewController.updateClicks();
+        this.gameViewController.updateTime();
     }
 
 }
