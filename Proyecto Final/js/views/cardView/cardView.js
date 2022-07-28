@@ -13,7 +13,7 @@ export class CardView extends View {
 
     show() {
         this.mainContainer.classList.add('cardView_disabled');
-        this.appManager.updateClicks();
+        this.appManager.updateClicks(this);
         this.mainContainer.innerHTML = this.card.icon;
     }
 
@@ -22,8 +22,12 @@ export class CardView extends View {
         this.mainContainer = this.defaultIcon;
     }
 
-    end(){
+    end() {
         this.mainContainer.classList.add('cardView_disable');
+    }
+
+    discover(){
+        this.mainContainer.classList.add('cardView_discovered')
     }
 
 }
