@@ -10,14 +10,14 @@ export class GameService{
         //2. On complete tell viewController to star
         var request = new XMLHttpRequest();
         request.open('GET','https://us-central1-beehivebackend-23257.cloudfunctions.net/app/cards/8');
-        request.onreadystatechange = this.getCardsComplete.bind(this);
+        request.onreadystatechange = this.getCardsCompleted.bind(this);
         request.send();
     }
 
     //readyState
     //status
 
-    getCardsComplete(event){
+    getCardsCompleted(event){
         var cards = [];
         var request = event.target;
         if(request.readyState === 4){
@@ -29,6 +29,22 @@ export class GameService{
                 });
 
                 this.viewController.start(cards);
+            }
+        }
+    }
+
+    sendScore(score){
+        var request = new XMLHttpRequest();
+        request.open('POST','https://us-central1-beehivebackend-23257.cloudfunctions.net/app/scores');
+        request.onreadystatechange = this.sendScoreCompleted.bind(this);
+        request.send(JSON.stringify(score)); 
+    }
+
+    sendScoreCompleted(event){
+        var request = event.target;
+        if(request.readyState === 4){
+            if(request.status === 200){
+                console.log(request);
             }
         }
     }

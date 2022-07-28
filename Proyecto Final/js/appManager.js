@@ -9,6 +9,7 @@ export class AppManager {
         this.menuViewController = null;
         this.scoresViewController = null;
         this.gameViewController = null;
+
         this.username = window.localStorage.getItem('username');
         this.clicks = 0;
         this.time = 0;
@@ -76,6 +77,9 @@ export class AppManager {
             this.cardView2 = null;
             if(this.gameViewController.isGameCompleted()){
                 console.log('GAME COMPLETED');
+                this.cleanGameTimer();
+                this.gameViewController.sendScore({"username": this.username, 
+                "clicks": this.clicks, "time": this.time, "score": (this.clicks + this.time) });  
             }
         } else {
             this.cardView1.hide();
@@ -95,10 +99,15 @@ export class AppManager {
         }
     }
 
+    cleanGameTimer(){
+        window.clearInterval(this.timer);
+        this.timer = null;
+    }
+
     reset() {
         this.clicks = 0;
         this.time = 0;
-        window.clearInterval(this.timer);
+        this.cleanGameTimer();
         this.timer = window.setInterval(this.updateTime.bind(this), 1000);
         this.gameViewController.updateClicks();
         this.gameViewController.updateTime();

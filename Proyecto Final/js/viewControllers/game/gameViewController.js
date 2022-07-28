@@ -76,9 +76,6 @@ export class GameViewController extends ViewController {
         this.timeLbl.innerHTML = `Time: ${this.appManager.time}`;
     }
 
-
-
-
     //ViewController Methods
     show() {
 
@@ -86,5 +83,9 @@ export class GameViewController extends ViewController {
 
     hide() {
 
+    }
+
+    sendScore(score){
+        this.service.sendScore(score);
     }
 }
