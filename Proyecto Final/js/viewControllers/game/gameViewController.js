@@ -53,6 +53,16 @@ export class GameViewController extends ViewController {
         })
     }
 
+    isGameCompleted() {
+        for (let i = 0; i < this.cardViews.length; i++) {
+            const card = this.cardViews[i].card;
+            if (!card.isDiscovered) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     reset() {
         this.service.getCards();
         this.appManager.reset();

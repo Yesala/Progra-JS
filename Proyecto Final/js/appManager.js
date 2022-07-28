@@ -48,19 +48,24 @@ export class AppManager {
         window.localStorage.setItem('username', username);
     }
 
-    updateClicks(cardView) {
+    onCardViewSelected(cardView) { 
+        if(this.cardView1 !== null && this.cardView2 !== null) return;
+
         this.clicks += 1;
         this.gameViewController.updateClicks();
 
         if (this.cardView1 === null) {
             this.cardView1 = cardView;
+            this.cardView1.show();
         } else if (this.cardView2 === null) {
             this.cardView2 = cardView;
-            this.showingTimer = window.setTimeout(this.resetCardViews.bind(this), 1000);
+            this.cardView2.show();
+            this.showingTimer = window.setTimeout(this.resetSelectedCardViews.bind(this), 1000);
+
         }
     }
 
-    resetCardViews() {
+    resetSelectedCardViews() {
         window.clearTimeout(this.showingTimer);
         this.showingTimer = null;
 
@@ -69,6 +74,9 @@ export class AppManager {
             this.cardView2.discover();
             this.cardView1 = null;
             this.cardView2 = null;
+            if(this.gameViewController.isGameCompleted()){
+                console.log('GAME COMPLETED');
+            }
         } else {
             this.cardView1.hide();
             this.cardView2.hide();

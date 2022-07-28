@@ -24,7 +24,7 @@ export class GameService{
             if(request.status === 200){
                 var cardsData = JSON.parse(request.response);
                 cardsData.cards.forEach(cardData => {
-                    var card = new Card(cardData.id, cardData.icon);
+                    var card = new Card(cardData.id, cardData.icon, cardData.isDiscovered);
                     cards.push(card);
                 });
 
