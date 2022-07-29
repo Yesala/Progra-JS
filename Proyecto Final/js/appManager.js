@@ -20,7 +20,8 @@ export class AppManager {
         if (this.username === null) {
             this.menuViewController = new MenuViewController(this, this.appContainer);
         } else {
-            this.showGame();
+            //this.showGame();
+            this.showScores();
         }
 
         this.cardView1 = null;
