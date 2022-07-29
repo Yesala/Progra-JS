@@ -9,10 +9,13 @@ export class CardView extends View {
         this.defaultIcon = '❕';
         this.mainContainer.innerHTML = this.defaultIcon;
         this.mainContainer.onclick = this.onSelected.bind(this);
+        //this.clickSFX = new Audio('my.audio.file.wav');
+        //this.corrrectSFX = new Audio('my.audio.file.wav');
     }
 
     onSelected(){
         this.appManager.onCardViewSelected(this);
+        //this.clickSFX.play();
     }
 
     show() {
@@ -30,6 +33,7 @@ export class CardView extends View {
     }
 
     discover(){
+        //this.correctSFX.play();
         this.card.isDiscovered = true;
         this.mainContainer.classList.add('cardView_discovered')
     }

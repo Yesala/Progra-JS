@@ -9,6 +9,24 @@
     flex-direction: column;
 }
 
+.scoresViewController_navigationBar{
+
+}
+
+.scoresViewController_navigationBar_titleLbl{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoresViewController_navigationBar_backBtn{
+    position: fixed;
+    margin: 15px 0px 0px 10px;
+}
+
 
 table {
     width: 90%;

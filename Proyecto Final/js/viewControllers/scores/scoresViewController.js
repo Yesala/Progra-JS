@@ -4,9 +4,14 @@ import { ScoresService } from "./scoresService.js";
 export class ScoresViewController extends ViewController {
     constructor(appManager, parent) {
         super(appManager, parent, 'Scores');
+        this.type = 'scoresViewController';
         this.service = new ScoresService(this);
         this.mainContainer.classList.add('scoresViewController');
         this.contentContainer.classList.add('scoresViewController_contentContainer');
+        this.navigationBar.classList.add('scoresViewController_navigationBar');
+
+        this.titleLbl.classList.add('scoresViewController_navigationBar_titleLbl');
+        this.backBtn.classList.add('scoresViewController_navigationBar_backBtn');
 
         //this.mainContainer.style.left = '250px';
         // this.navigationBar.style.backgroundColor = 'yellow';

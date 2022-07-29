@@ -18,7 +18,7 @@ export class AppManager {
         this.showingTimer = null;
 
         // if (this.username === null) {
-        this.menuViewController = new MenuViewController(this, this.appContainer);
+        this.showMenu();
         // } else {
         // this.showGame();
         //     this.showScores();
@@ -26,6 +26,12 @@ export class AppManager {
 
         this.cardView1 = null;
         this.cardView2 = null;
+
+        //this.celebrationSFX = new Audio(../sound/click.mp3);
+    }
+
+    showMenu(){
+        this.menuViewController = new MenuViewController(this, this.appContainer);
     }
 
     showScores() {
@@ -41,6 +47,17 @@ export class AppManager {
         this.reset(false);
         this.cleanGameTimer();
         this.appContainer.removeChild(viewController.mainContainer);
+
+        switch (viewController.type) {
+            case 'gameViewController':
+                this.gameViewController = null;
+                break;
+            case 'scoresViewController':
+                this.scoresViewController = null;
+                break;
+            default:
+                break;
+        }
     }
 
     removeGame() {
@@ -78,8 +95,10 @@ export class AppManager {
             this.cardView2.discover();
             this.cardView1 = null;
             this.cardView2 = null;
+
             if(this.gameViewController.isGameCompleted()){
                 console.log('GAME COMPLETED');
+                //this.celebrationSFX.play();
                 this.cleanGameTimer();
                 this.gameViewController.sendScore({"username": this.username, 
                 "clicks": this.clicks, "time": this.time, "score": (this.clicks + this.time) });  
@@ -115,8 +134,12 @@ export class AppManager {
         if(isCreatingTimer){
             this.timer = window.setInterval(this.updateTime.bind(this), 1000);
         }
-        this.gameViewController.updateClicks();
-        this.gameViewController.updateTime();
+
+        if(this.gameViewController !== null){
+            this.gameViewController.updateClicks();
+            this.gameViewController.updateTime();
+        }
+        
     }
 
 }

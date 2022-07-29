@@ -5,6 +5,7 @@ import { GameService } from "./gameService.js";
 export class GameViewController extends ViewController {
     constructor(appManager, parent) {
         super(appManager, parent, 'Game');
+        this.type = 'gameViewController';
         this.mainContainer.classList.add('gameViewController');
         this.service = new GameService(this);
         this.cardViews = [];
@@ -13,6 +14,10 @@ export class GameViewController extends ViewController {
         hudContainer.className = 'gameViewController_hudContainer';
         this.contentContainer.appendChild(hudContainer);
         this.contentContainer.classList.add('gameViewController_contentContainer');
+        this.navigationBar.classList.add('gameViewController_navigationBar');
+
+        this.titleLbl.classList.add('gameViewController_navigationBar_titleLbl');
+        this.backBtn.classList.add('gameViewController_navigationBar_backBtn');
 
         this.cardsContainer = document.createElement('div');
         this.cardsContainer.className = 'gameViewController_cardsContainer';

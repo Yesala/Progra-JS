@@ -7,8 +7,26 @@
     flex-direction: column;
 }
 
-.gameViewController_hudContainer{
+.gameViewController_navigationBar{
+
+}
+
+.gameViewController_navigationBar_titleLbl{
+    height: 100%;
+    width: 100%;
+    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameViewController_navigationBar_backBtn{
+    position: fixed;
+    margin: 15px 0px 0px 10px;
+}
+
+.gameViewController_hudContainer{
+    display: flex; 
     justify-content: space-between;
     align-items: center;
     background-color: antiquewhite;

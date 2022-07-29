@@ -3,6 +3,7 @@ import { View } from "../views/view.js";
 export class ViewController extends View {
     constructor(appManager, parent, title = ''){
         super(parent);
+        this.type = 'viewController';
         this.appManager = appManager;
         //this.parent = parent;
         this.service = null;
