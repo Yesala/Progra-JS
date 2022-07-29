@@ -6,6 +6,7 @@ export class ScoresViewController extends ViewController {
         super(appManager, parent, 'Scores');
         this.service = new ScoresService(this);
         this.mainContainer.classList.add('scoresViewController');
+        this.contentContainer.classList.add('scoresViewController_contentContainer');
 
         //this.mainContainer.style.left = '250px';
         // this.navigationBar.style.backgroundColor = 'yellow';
@@ -16,13 +17,13 @@ export class ScoresViewController extends ViewController {
 
     start(scores) {
         var table = document.createElement('table');
-        table.className = 'scoresViewController_table';
         this.contentContainer.appendChild(table);
 
         var tr = document.createElement('tr');
         table.appendChild(tr);
 
         var th = document.createElement('th');
+        th.isDefaultNamespace = 'scoresViewController_th';
         th.innerHTML = 'Name';
         tr.appendChild(th);
 
@@ -47,6 +48,7 @@ export class ScoresViewController extends ViewController {
 
             var td = document.createElement('td');
             td.innerHTML = score.username;
+            td.classList.add('td_name');
             tr.appendChild(td);
 
             td = document.createElement('td');

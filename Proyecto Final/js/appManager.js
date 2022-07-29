@@ -17,12 +17,12 @@ export class AppManager {
         this.timeLimit = 1000;
         this.showingTimer = null;
 
-        if (this.username === null) {
-            this.menuViewController = new MenuViewController(this, this.appContainer);
-        } else {
-            //this.showGame();
-            this.showScores();
-        }
+        // if (this.username === null) {
+        this.menuViewController = new MenuViewController(this, this.appContainer);
+        // } else {
+        // this.showGame();
+        //     this.showScores();
+        // }
 
         this.cardView1 = null;
         this.cardView2 = null;
@@ -38,6 +38,8 @@ export class AppManager {
     }
 
     removeViewController(viewController) {
+        this.reset(false);
+        this.cleanGameTimer();
         this.appContainer.removeChild(viewController.mainContainer);
     }
 
@@ -105,11 +107,14 @@ export class AppManager {
         this.timer = null;
     }
 
-    reset() {
+    reset(isCreatingTimer = true) {
         this.clicks = 0;
         this.time = 0;
         this.cleanGameTimer();
-        this.timer = window.setInterval(this.updateTime.bind(this), 1000);
+
+        if(isCreatingTimer){
+            this.timer = window.setInterval(this.updateTime.bind(this), 1000);
+        }
         this.gameViewController.updateClicks();
         this.gameViewController.updateTime();
     }

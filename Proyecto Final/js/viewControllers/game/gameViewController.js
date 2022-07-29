@@ -65,7 +65,7 @@ export class GameViewController extends ViewController {
 
     reset() {
         this.service.getCards();
-        this.appManager.reset();
+        this.appManager.reset(true);
     };
 
     updateClicks() {

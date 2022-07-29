@@ -1,7 +1,38 @@
 .scoresViewController{
-
+    
 }
 
-.scoresViewController_table{
-    
+.scoresViewController_contentContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+table {
+    width: 90%;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+th {
+    height: 30px;
+    color: white;
+    background-color: var(--primary-color) ;
+    border: 1px solid;
+    border-color: var(--primary-color) ;
+}
+
+tr {
+    border: 1px solid;
+}
+
+td {
+    text-align: center;
+    border: 1px solid;
+}
+
+.td_name {
+    font-weight: bold;
 }
