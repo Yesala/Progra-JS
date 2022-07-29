@@ -25,7 +25,7 @@ export class CardView extends View {
 
     hide() {
         this.mainContainer.classList.remove('cardView_disabled')
-        this.mainContainer = this.defaultIcon;
+        this.mainContainer.innerHTML = this.defaultIcon;
     }
 
     end() {

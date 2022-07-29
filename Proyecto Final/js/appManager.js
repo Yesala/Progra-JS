@@ -98,7 +98,7 @@ export class AppManager {
 
             if(this.gameViewController.isGameCompleted()){
                 console.log('GAME COMPLETED');
-                //this.celebrationSFX.play();
+                //this.celebrationSFX.play(); 
                 this.cleanGameTimer();
                 this.gameViewController.sendScore({"username": this.username, 
                 "clicks": this.clicks, "time": this.time, "score": (this.clicks + this.time) });  
