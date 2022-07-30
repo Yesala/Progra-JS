@@ -9,7 +9,7 @@ export class GameService{
         //1.Get all cards
         //2. On complete tell viewController to star
         var request = new XMLHttpRequest();
-        request.open('GET','https://us-central1-beehivebackend-23257.cloudfunctions.net/app/cards/8');
+        request.open('GET','https://us-central1-beehivebackend-23257.cloudfunctions.net/app/cards/2');
         request.onreadystatechange = this.getCardsCompleted.bind(this);
         request.send();
     }
@@ -30,7 +30,7 @@ export class GameService{
 
                 this.viewController.start(cards);
             }
-        }
+        }  
     }
 
     sendScore(score){

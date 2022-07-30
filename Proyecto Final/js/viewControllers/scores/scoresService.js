@@ -11,7 +11,7 @@ export class ScoresService{
         request.onreadystatechange = this.getScoreCompleted.bind(this);
         request.send(); 
     }
- 
+  
     getScoreCompleted(event){
         var request = event.target;
         if(request.readyState === 4){

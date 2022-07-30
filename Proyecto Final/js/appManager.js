@@ -95,16 +95,15 @@ export class AppManager {
             this.cardView2.discover();
             this.cardView1 = null;
             this.cardView2 = null;
-
+ 
             if(this.gameViewController.isGameCompleted()){
                 console.log('GAME COMPLETED');
                 //this.celebrationSFX.play(); 
                 this.cleanGameTimer();
-                this.gameViewController.sendScore({"username": this.username, 
-                "clicks": this.clicks, "time": this.time, "score": (this.clicks + this.time) });  
+                this.gameViewController.sendScore({"username": this.username, "clicks": this.clicks, "time": this.time, "score": (this.clicks + this.time) });  
             }
         } else {
-            this.cardView1.hide();
+            this.cardView1.hide();  
             this.cardView2.hide();
             this.cardView1 = null;
             this.cardView2 = null;
