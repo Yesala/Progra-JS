@@ -22,7 +22,7 @@ export class MenuViewController extends ViewController {
           this.contentContainer.appendChild(playBtn);
           this.contentContainer.appendChild(scoreBtn);
 
-          image.src = '/img/brain.png';
+          image.src = '../js/viewControllers/menu/img/brain.png';
           text1Lbl.innerHTML = 'Card Memory Game';
           text2Lbl.innerHTML = 'Enter username to play';
           this.usernameIn.placeholder = 'Username';

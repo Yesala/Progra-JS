@@ -47,4 +47,6 @@
 .menuViewController_image {
     justify-content: center;
     align-items: center;
+    width: 30%;
+    height: auto;
 }
