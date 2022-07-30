@@ -3,7 +3,7 @@
 .gameViewController_contentContainer{
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-top: 30px;
     flex-direction: column;
 }
 
@@ -22,17 +22,20 @@
 
 .gameViewController_navigationBar_backBtn{
     position: fixed;
-    margin: 15px 0px 0px 10px;
+    margin: 15px 0px 0px 30px;
 }
 
 .gameViewController_hudContainer{
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    background-color: antiquewhite;
-    height: 60px;
+    background-color: #ffffff;
+    height: 50px;
     width: 90%;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 5px #c6c4c4;
+    color: #22737c;
+    font-weight: bolder;
 }
 
 .gameViewController_cardsContainer{
@@ -45,15 +48,15 @@
 }
 
 .gameViewController_clicksLbl{
-    margin-left: 8px;
-    font-size: 16px;
+    margin-left: 15px;
+    font-size: 17px;
 }
 
 .gameViewController_timeLbl{
     margin-left: 8px;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .gameViewController_resetBtn{
-    margin-right: 8px;
+    margin-right: 15px;
 }

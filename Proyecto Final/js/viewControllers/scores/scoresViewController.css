@@ -5,8 +5,8 @@
 .scoresViewController_contentContainer{
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    margin-top: 30px;
 }
 
 .scoresViewController_navigationBar{
@@ -24,31 +24,32 @@
 
 .scoresViewController_navigationBar_backBtn{
     position: fixed;
-    margin: 15px 0px 0px 10px;
+    margin: 15px 0px 0px 30px;
 }
 
 
 table {
     width: 90%;
-    border: 1px solid;
     border-collapse: collapse;
 }
 
 th {
     height: 30px;
     color: white;
-    background-color: var(--primary-color) ;
-    border: 1px solid;
-    border-color: var(--primary-color) ;
+    background-color: #d24747 ;
 }
 
 tr {
     border: 1px solid;
+    border-color: #b5bbbb;
+    
 }
 
 td {
-    text-align: center;
     border: 1px solid;
+    border-color:#b5bbbb;
+    text-align: center;
+    line-height: 22px;
 }
 
 .td_name {

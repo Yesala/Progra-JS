@@ -1,8 +1,6 @@
-.menuViewController{
+.menuViewController {}
 
-}
-
-.menuViewController_text1Lbl{
+.menuViewController_text1Lbl {
     text-align: center;
     width: 90%;
     font-size: 28px;
@@ -11,7 +9,7 @@
     color: darkcyan;
 }
 
-.menuViewController_text2Lbl{
+.menuViewController_text2Lbl {
     text-align: center;
     width: 90%;
     font-size: 15px;
@@ -19,21 +17,21 @@
     color: #61615d;
 }
 
-.menuViewController_navigationBar{
+.menuViewController_navigationBar {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menuViewController_contentContainer{
+.menuViewController_contentContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.menuViewController_usernameIn{
-    width: 60%;
+.menuViewController_usernameIn {
+    width: 50%;
     height: 30px;
     margin-bottom: 30px;
     border-radius: 5px;
@@ -41,7 +39,12 @@
     text-align: center;
 }
 
-.menuViewController_buttons{
+.menuViewController_buttons {
     width: 50%;
     height: 30px;
+}
+
+.menuViewController_image {
+    justify-content: center;
+    align-items: center;
 }

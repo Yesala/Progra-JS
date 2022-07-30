@@ -4,7 +4,7 @@ import { GameService } from "./gameService.js";
 
 export class GameViewController extends ViewController {
     constructor(appManager, parent) {
-        super(appManager, parent, 'Game');
+        super(appManager, parent, 'GAME');
         this.type = 'gameViewController';
         this.mainContainer.classList.add('gameViewController');
         this.service = new GameService(this);
